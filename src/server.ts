@@ -1,19 +1,5 @@
-import fastify from 'fastify'
-import cookie from '@fastify/cookie'
-import { knex } from './database'
-import crypto from 'node:crypto'
-import { env } from './env'
-import { transactionsRoutes } from './routes/transactions'
-
-const app = fastify()
-
-app.register(cookie)
-
-// GET, POST, PUT, PATCH, DELETE
-
-app.register(transactionsRoutes, {
-  prefix: 'transactions',
-})
+import { app } from "./app"
+import { env } from "./env"
 
 app
   .listen({
